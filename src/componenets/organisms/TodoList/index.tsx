@@ -3,6 +3,7 @@
  * 
  * @package organisms
  */
+import './index.css';
 import { TodoType } from "../../../const";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
