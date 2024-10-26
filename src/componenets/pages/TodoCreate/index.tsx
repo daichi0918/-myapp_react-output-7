@@ -1,7 +1,15 @@
-import React from 'react'
+/**
+ * TodoCreate
+ * 
+ * @package pages
+ */
+import { TodoCreateTemplate } from '../../templates/TodoCreate';
 
+/**
+ * @returns {JSX.Element}
+ */
 export const TodoCreatePage = () => {
   return (
-    <div>TodoCreate</div>
+    <TodoCreateTemplate />
   )
 }

@@ -4,10 +4,7 @@
  * @package templates
  */
 import './index.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFile, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { useTodoTop } from '../../../hooks/TodoTop';
-import { TodoType } from '../../../const';
 import { InputForm } from '../../atoms/InputForm';
 import { TodoList } from '../../organisms/TodoList';
 
