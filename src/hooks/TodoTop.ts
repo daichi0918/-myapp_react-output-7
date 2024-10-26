@@ -5,7 +5,7 @@ export const useTodoTop = () => {
   /**
    * state定義
    */
-  const { originalTodoList } = useContext(TodoContext);
+  const { originalTodoList, setOriginalTodoList } = useContext(TodoContext);
   const [searchKeyWord, setSearchKeyWord] = useState<string>('');
 
   /**
@@ -20,11 +20,22 @@ export const useTodoTop = () => {
       return todo.title.match(regexp);
     });
   }, [searchKeyWord, originalTodoList]);
+
+  const handleDeleteTodoTask = (targetId: number, taskName: string) => {
+    if (window.confirm(`「${taskName}」を削除していいですか？`)) {
+      const newTodoList = originalTodoList.filter(
+        (todo) => todo.id !== targetId
+      );
+      setOriginalTodoList(newTodoList);
+    }
+  };
   return {
     originalTodoList,
+    setOriginalTodoList,
     searchKeyWord,
     setSearchKeyWord,
     showTodoList,
     handleSearchKeyWordInput,
+    handleDeleteTodoTask,
   };
 };

@@ -6,8 +6,6 @@
 import './index.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import { useContext, useMemo, useState } from 'react';
-import { TodoContext } from '../../../contexts/TodoContext';
 import { useTodoTop } from '../../../hooks/TodoTop';
 import { TodoType } from '../../../const';
 
@@ -15,7 +13,9 @@ import { TodoType } from '../../../const';
  * @returns {JSX.Element}
  */
 export const TodoTopTemplate = () => {
-  const {searchKeyWord, handleSearchKeyWordInput, showTodoList}= useTodoTop();
+  const {searchKeyWord, handleSearchKeyWordInput, showTodoList, handleDeleteTodoTask}= useTodoTop();
+
+
 
   return (
     <>
@@ -40,7 +40,7 @@ export const TodoTopTemplate = () => {
                           <FontAwesomeIcon icon={faPenToSquare} size='lg'/>
                         </div>
                         <div className='icon_wrapper'>
-                          <FontAwesomeIcon icon={faTrashCan} size='lg'/>
+                          <FontAwesomeIcon icon={faTrashCan} size='lg' onClick={() => handleDeleteTodoTask(todo.id, todo.title)}/>
                         </div>
                       </div>
                     </li>
