@@ -6,6 +6,7 @@
 import './index.css';
 import { useTodoCreate } from "../../../hooks/TodoCreate";
 import { InputForm } from '../../atoms/InputForm';
+import { TextAreaForm } from '../../atoms/TextAreaForm';
 
 /**
  * @returns {JSX.Element}
@@ -24,7 +25,6 @@ export const TodoCreateTemplate = () => {
       <h1 className='title'>Create Todo</h1>
       <form className="contents_container">
         <div className='content'>
-          {/* <input type="text" placeholder="Title" className="title_input" value={addInputTitle} onChange={handleAddInputTitleChange}/> */}
           <InputForm 
             placeholder={"Title"}
             className={"title_input"}
@@ -33,7 +33,12 @@ export const TodoCreateTemplate = () => {
           />
         </div>
         <div className='content'>
-          <textarea className="content_input" placeholder="Content" value={addTextAreaContent} onChange={handleAddInputContentChange}/>
+          <TextAreaForm 
+            className={"content_input"} 
+            placeholder={"Content"}
+            inputValue={addTextAreaContent}
+            onChange={handleAddInputContentChange}
+          />
         </div>
         <div className='content'>
           <button className="button" onClick={handleCreateTodo}>

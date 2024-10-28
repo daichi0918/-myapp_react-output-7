@@ -6,7 +6,7 @@
 
 import './index.css';
 
-export type InputFormType = {
+type InputFormType = {
   className: string;
   placeholder: string;
   inputValue: string;
