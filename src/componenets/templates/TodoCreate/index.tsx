@@ -7,6 +7,7 @@ import './index.css';
 import { useTodoCreate } from "../../../hooks/TodoCreate";
 import { InputForm } from '../../atoms/InputForm';
 import { TextAreaForm } from '../../atoms/TextAreaForm';
+import { Button } from '../../atoms/Button';
 
 /**
  * @returns {JSX.Element}
@@ -41,9 +42,7 @@ export const TodoCreateTemplate = () => {
           />
         </div>
         <div className='content'>
-          <button className="button" onClick={handleCreateTodo}>
-            Create Todo
-          </button>
+          <Button className={"button"} onClick={handleCreateTodo} ButtonName={"Create Todo"} />
         </div>
       </form>
     </>
