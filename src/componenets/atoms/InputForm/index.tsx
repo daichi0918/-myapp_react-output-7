@@ -8,9 +8,10 @@ import './index.css';
 
 type InputFormType = {
   className: string;
-  placeholder: string;
+  placeholder?: string;
   inputValue: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  readonly?: boolean;
 }
 
 /**
@@ -19,7 +20,7 @@ type InputFormType = {
  * @returns {JSX.Element}
  */
 export const InputForm = (props: InputFormType) => {
-  const {className, placeholder, inputValue, onChange} = props;
+  const {className, placeholder, inputValue, onChange, readonly = false} = props;
   return (
       <>
         <input 
@@ -28,6 +29,7 @@ export const InputForm = (props: InputFormType) => {
           placeholder={placeholder}
           value={inputValue}
           onChange={onChange}
+          readOnly={readonly}
         />
       </>
   )

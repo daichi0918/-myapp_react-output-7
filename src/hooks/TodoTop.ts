@@ -6,11 +6,13 @@
 
 import { useContext, useMemo, useState } from 'react';
 import { TodoContext } from '../contexts/TodoContext';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * useTodoTop
  */
 export const useTodoTop = () => {
+  const navigate = useNavigate();
   /**
    * state定義
    */
@@ -50,6 +52,14 @@ export const useTodoTop = () => {
       setOriginalTodoList(newTodoList);
     }
   };
+  /**
+   * 詳細ページ遷移
+   * @param { number } targetId
+   */
+  const goToDetailPage = (targetId: number) => {
+    navigate(`/detail/${targetId}`);
+  };
+
   return {
     originalTodoList,
     setOriginalTodoList,
@@ -58,5 +68,6 @@ export const useTodoTop = () => {
     showTodoList,
     handleSearchKeyWordInput,
     handleDeleteTodoTask,
+    goToDetailPage,
   };
 };

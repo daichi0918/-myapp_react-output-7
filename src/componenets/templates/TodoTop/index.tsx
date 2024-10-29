@@ -12,7 +12,7 @@ import { TodoList } from '../../organisms/TodoList';
  * @returns {JSX.Element}
  */
 export const TodoTopTemplate = () => {
-  const {searchKeyWord, handleSearchKeyWordInput, showTodoList, handleDeleteTodoTask}= useTodoTop();
+  const {searchKeyWord, handleSearchKeyWordInput, showTodoList, handleDeleteTodoTask, goToDetailPage}= useTodoTop();
 
   return (
     <>
@@ -27,7 +27,7 @@ export const TodoTopTemplate = () => {
           />
         </div>
         <div className='content'>
-          <TodoList showTodoList={showTodoList} handleDeleteTodoTask={handleDeleteTodoTask}/>
+          <TodoList showTodoList={showTodoList} handleDeleteTodoTask={handleDeleteTodoTask} goToDetailPage={goToDetailPage}/>
         </div>
       </div>
     </>
