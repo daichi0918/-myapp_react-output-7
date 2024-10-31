@@ -4,12 +4,9 @@
  * @package templates
  */
 
-import { useContext, useState } from "react";
 import { Button } from "../../atoms/Button"
 import { InputForm } from "../../atoms/InputForm"
 import { TextAreaForm } from "../../atoms/TextAreaForm"
-import { TodoContext } from "../../../contexts/TodoContext";
-import { useNavigate } from "react-router-dom";
 import { useTodoEdit } from "../../../hooks/TodoEdit";
 
 
@@ -32,38 +29,27 @@ export const TodoEditTemplate = ({ id } : {id: string }) => {
       <h1 className='title'>TodoEdit</h1>
       <form className="contents_container">
         <div className='content'>
-          {/* <InputForm 
+          <InputForm 
             placeholder={"Title"}
             className={"title_input"}
-            inputValue={addInputTitle}
-            onChange={handleAddInputTitleChange}
-          /> */}
-          <input 
-            placeholder={"Title"}
-            className={"title_input"}
-            value={editInputTitleValue}
+            inputValue={editInputTitleValue}
             onChange={handleEditInputTitlChange}
           />
         </div>
         <div className='content'>
-          {/* <TextAreaForm 
+          <TextAreaForm 
             className={"content_input"} 
             placeholder={"Content"}
-            inputValue={addTextAreaContent}
-            onChange={handleAddInputContentChange}
-          /> */}
-          <textarea 
-            className={"content_input"} 
-            placeholder={"Content"}
-            value={editTextareaContentValue}
+            inputValue={editTextareaContentValue}
             onChange={handleEditTextareaContentChange}
           />
         </div>
         <div className='content'>
-          {/* <Button className={"button"} onClick={handleCreateTodo} ButtonName={"Create Todo"} /> */}
-          <button className="button" onClick={() => handleUpdateTodo(id)}>
-            Edit Todo
-          </button>
+          <Button 
+            className={"button"}
+            ButtonName={"Edit Todo"}
+            onClick={() => handleUpdateTodo(id)}
+          />
         </div>
       </form>
     </>
