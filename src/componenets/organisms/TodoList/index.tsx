@@ -13,6 +13,7 @@ type TodoListType = {
   showTodoList: Array<TodoType>;
   handleDeleteTodoTask:  (targetId: number, taskName: string) => void;
   goToDetailPage: (targetId: number) => void;
+  goToEditPage: (targetId: number) => void;
 }
 
 /**
@@ -21,7 +22,7 @@ type TodoListType = {
  * @returns {JSX.Element}
  */
 export const TodoList = (props: TodoListType) => {
-  const {showTodoList, handleDeleteTodoTask, goToDetailPage} = props;
+  const {showTodoList, handleDeleteTodoTask, goToDetailPage, goToEditPage} = props;
 
   return (
     <ul className='todo_top_list'>
@@ -37,7 +38,7 @@ export const TodoList = (props: TodoListType) => {
                   <FontAwesomeIcon icon={faFile} size='lg' onClick={() => goToDetailPage(todo.id)}/>
                 </div>
                 <div className='icon_wrapper'>
-                  <FontAwesomeIcon icon={faPenToSquare} size='lg'/>
+                  <FontAwesomeIcon icon={faPenToSquare} size='lg'onClick={() => goToEditPage(todo.id)}/>
                 </div>
                 <div className='icon_wrapper'>
                   <FontAwesomeIcon icon={faTrashCan} size='lg' onClick={() => handleDeleteTodoTask(todo.id, todo.title)}/>

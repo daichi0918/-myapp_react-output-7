@@ -60,6 +60,14 @@ export const useTodoTop = () => {
     navigate(`/detail/${targetId}`);
   };
 
+  /**
+   * 編集ページ遷移
+   * @param { number } targetId
+   */
+  const goToEditPage = (targetId: number) => {
+    navigate(`/edit/${targetId}`);
+  };
+
   return {
     originalTodoList,
     setOriginalTodoList,
@@ -69,5 +77,6 @@ export const useTodoTop = () => {
     handleSearchKeyWordInput,
     handleDeleteTodoTask,
     goToDetailPage,
+    goToEditPage,
   };
 };
