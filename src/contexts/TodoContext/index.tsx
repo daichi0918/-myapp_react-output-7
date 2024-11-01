@@ -26,6 +26,7 @@ export const TodoContext = createContext<TodoContextType>({
  * @param {ReactNode} children
  * @returns {JSX.Element}
  */
+// FIX: FC<Props>という書き方もある>
 export const TodoProvider = ({children}: {children: ReactNode}) => {
   const [ originalTodoList, setOriginalTodoList] = useState(INITIAL_TODO_LIST);
   const [todoListLength, setTodoListLength] = useState<number>(INITIAL_TODO_LIST_LENGTH);
