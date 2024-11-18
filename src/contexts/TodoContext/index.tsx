@@ -22,6 +22,8 @@ export const TodoContext = createContext<TodoContextType>({
   setTodoListLength: () => {}
 });
 
+// export const TodoContext = createContext({} as TodoContextType);
+
 /**
  * @param {ReactNode} children
  * @returns {JSX.Element}
