@@ -1,54 +1,64 @@
 /**
  * TodoList
- * 
+ *
  * @package organisms
  */
 import './index.css';
-import { TodoType } from "../../../const";
+import { TodoType } from '../../../const';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFile, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate } from 'react-router-dom';
+import {
+  faFile,
+  faPenToSquare,
+  faTrashCan,
+} from '@fortawesome/free-solid-svg-icons';
 
 type TodoListType = {
   showTodoList: Array<TodoType>;
-  handleDeleteTodoTask:  (targetId: number, taskName: string) => void;
+  handleDeleteTodoTask: (targetId: number, taskName: string) => void;
   goToDetailPage: (targetId: number) => void;
   goToEditPage: (targetId: number) => void;
-}
+};
 
 /**
- * 
- * @param props 
+ *
+ * @param props
  * @returns {JSX.Element}
  */
 export const TodoList = (props: TodoListType) => {
-  const {showTodoList, handleDeleteTodoTask, goToDetailPage, goToEditPage} = props;
+  const { showTodoList, handleDeleteTodoTask, goToDetailPage, goToEditPage } =
+    props;
 
   return (
-    <ul className='todo_top_list'>
-    {
-      showTodoList.length > 0 && 
-      (
-        showTodoList.map((todo: TodoType) => 
-          (
-            <li key={todo.id} className={'todo_top_item'}>
-              <span>{todo.title}</span>
-              <div className={"todo_top_icons"}>
-                <div className='icon_wrapper'>
-                  <FontAwesomeIcon icon={faFile} size='lg' onClick={() => goToDetailPage(todo.id)}/>
-                </div>
-                <div className='icon_wrapper'>
-                  <FontAwesomeIcon icon={faPenToSquare} size='lg'onClick={() => goToEditPage(todo.id)}/>
-                </div>
-                <div className='icon_wrapper'>
-                  <FontAwesomeIcon icon={faTrashCan} size='lg' onClick={() => handleDeleteTodoTask(todo.id, todo.title)}/>
-                </div>
+    <ul className="todo_top_list">
+      {showTodoList.length > 0 &&
+        showTodoList.map((todo: TodoType) => (
+          <li key={todo.id} className={'todo_top_item'}>
+            <span>{todo.title}</span>
+            <div className={'todo_top_icons'}>
+              <div className="icon_wrapper">
+                <FontAwesomeIcon
+                  icon={faFile}
+                  size="lg"
+                  onClick={() => goToDetailPage(todo.id)}
+                />
               </div>
-            </li>
-          )
-        )
-      )
-    }
-  </ul>
-  )
-}
+              <div className="icon_wrapper">
+                <FontAwesomeIcon
+                  icon={faPenToSquare}
+                  size="lg"
+                  onClick={() => goToEditPage(todo.id)}
+                />
+              </div>
+              <div className="icon_wrapper">
+                <FontAwesomeIcon
+                  icon={faTrashCan}
+                  size="lg"
+                  onClick={() => handleDeleteTodoTask(todo.id, todo.title)}
+                />
+              </div>
+            </div>
+          </li>
+        ))}
+    </ul>
+  );
+};
